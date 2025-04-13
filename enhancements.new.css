@@ -1,0 +1,72 @@
+/* enhancements.css */
+
+/* Back-to-Top Button Styling */
+#back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #37fab2;
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  font-size: 20px;
+  display: none; /* Hidden until scrolled down */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Fade-in Animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.gallery-thumbnail:hover {
+  opacity: 0.85;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.site-footer {
+  background-color: #0e0e0e;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  font-family: Inconsolata, monospace;
+  font-size: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 70px;
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.site-footer .social-links {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.site-footer .social-links li a {
+  color: #37fab2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.site-footer .social-links li a:hover {
+  text-decoration: underline;
+}
