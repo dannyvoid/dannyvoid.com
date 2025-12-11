@@ -33,32 +33,55 @@ async function fetchLastFmData() {
 }
 
 function formatMessage(track) {
-    const { name: songName, artist: { '#text': artistName }, '@attr': nowPlaying, date } = track;
-    const action = nowPlaying ? "🎧 Currently listening to" : "⏸️ Last listened to";
-
-    let message = `${action} <a href="https://last.fm/user/${username}" target="_blank">${artistName} - ${songName}</a>.`;
-
+    const { name: songName, artist: { '#text': artistName }, '@attr': nowPlaying, date, image } = track;
+    const isPlaying = !!nowPlaying;
+    
+    const albumArt = image && image.length > 0 ? image[image.length - 1]['#text'] : '';
+    
+    let timeString = '';
     if (date) {
         const dateObj = new Date(parseInt(date.uts) * 1000);
-
-        const formattedDate = dateObj.toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: '2-digit',
-            day: '2-digit'
-        });
-
-        const formattedTime = dateObj.toLocaleTimeString('en-US', {
-            hour: 'numeric',
-            minute: '2-digit',
-            second: '2-digit',
-            hour12: true,
-            timeZoneName: 'short'
-        });
-
-        message += ` Played on ${formattedDate} at ${formattedTime}.`;
+        const now = new Date();
+        const diffMinutes = Math.floor((now - dateObj) / 60000);
+        
+        if (diffMinutes < 1) {
+            timeString = 'Just now';
+        } else if (diffMinutes < 60) {
+            timeString = `${diffMinutes}m ago`;
+        } else if (diffMinutes < 1440) {
+            const hours = Math.floor(diffMinutes / 60);
+            timeString = `${hours}h ago`;
+        } else {
+            const formattedTime = dateObj.toLocaleTimeString('en-US', {
+                hour: 'numeric',
+                minute: '2-digit',
+                hour12: true
+            });
+            timeString = formattedTime;
+        }
     }
 
-    return message;
+    const statusClass = isPlaying ? 'playing' : 'paused';
+    const statusText = isPlaying ? 'Now Playing' : 'Last Played';
+    
+    return `
+        <div class="lastfm-card ${statusClass}">
+            ${albumArt ? `<div class="lastfm-artwork"><img src="${albumArt}" alt="${songName}" /></div>` : ''}
+            <div class="lastfm-content">
+                <div class="lastfm-status">
+                    <span class="status-indicator"></span>
+                    <span class="status-text">${statusText}</span>
+                </div>
+                <div class="lastfm-track">
+                    <a href="https://last.fm/user/${username}" target="_blank" class="track-link">
+                        <div class="track-name">${songName}</div>
+                        <div class="track-artist">${artistName}</div>
+                    </a>
+                </div>
+                ${timeString ? `<div class="lastfm-time">${timeString}</div>` : ''}
+            </div>
+        </div>
+    `;
 }
 
 
@@ -66,13 +89,19 @@ async function updateLastFmData() {
     const recentTracks = await fetchLastFmData();
 
     if (recentTracks.length === 0) {
-        displayError("API is currently down.");
+        displayMessage(`
+            <div class="lastfm-card error">
+                <div class="lastfm-status">
+                    <span class="status-text">Unable to load</span>
+                </div>
+            </div>
+        `);
         return;
     }
 
     const latestSong = recentTracks[0];
     const message = formatMessage(latestSong);
-    displayMessage(`<strong class="bold-text2">${message}</strong><br /><br />`);
+    displayMessage(message);
 }
 
 function updatePage() {

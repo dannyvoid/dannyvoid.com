@@ -27,6 +27,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="style.min.css" type="text/css" />
     <link rel="stylesheet" href="enhancements.new.css" type="text/css" />
+    <link rel="stylesheet" href="modern-enhancements.css" type="text/css" />
 
     <!-- Web Fonts -->
     <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
@@ -97,11 +98,11 @@
     <!-- Main Content -->
     <main>
       <!-- Hero Section -->
-      <header id="home" class="hero wf-section fade-in">
+      <header id="home" class="hero wf-section fade-in reveal">
         <div class="flex-container w-container">
           <div>
-            <h1 class="heading-3">Hi, I'm Danny Void.</h1>
-            <p class="paragraph">
+            <h1 class="heading-3 text-reveal">Hi, I'm Danny Void.</h1>
+            <div class="paragraph reveal-left">
               <strong class="bold-text">
                 I've been designing 
                 <a href="https://www.instagram.com/danny.void/" target="_blank"><strong>album art</strong></a>
@@ -112,11 +113,15 @@
                 <a href="https://open.spotify.com/track/4iFsDSFE0d0aDovMpdqgpq?si=ecd31873eae749c5" target="_blank"><strong>music</strong></a> 
                 or overthinking fonts.
               </strong>
-              <div id="lastfm">
-                <strong class="bold-text2">? Connecting to Last.fm...</strong><br /><br />
+              <div id="lastfm" class="reveal-left">
+                <div class="lastfm-card">
+                  <div class="lastfm-status">
+                    <span class="status-text">Connecting to Last.fm...</span>
+                  </div>
+                </div>
               </div>
-            </p>
-            <a href="#terms" class="button-3 w-button">Hire Me</a>
+            </div>
+            <a href="#terms" class="button-3 w-button reveal-scale">Hire Me</a>
           </div>
         </div>
 
@@ -128,8 +133,8 @@
         </div>
 
         <div class="centered-container w-container">
-          <h4 class="heading-2">At A Glance</h4>
-          <div class="gallery-grid-container">
+          <h4 class="heading-2 reveal">At A Glance</h4>
+          <div class="gallery-grid-container reveal">
             <a href="#" id="w-node-_0a936daa-dc56-f755-63ef-2f9f5d6f4158-c3a979d0" class="gallery-lightbox w-inline-block w-lightbox">
               <img src="images/60e4ff14a7cea9e320ad1f36_161.webp" loading="lazy" sizes="(max-width: 479px) 92vw, (max-width: 767px) 46vw, (max-width: 991px) 167px, 220px" srcset="
                 images/60e4ff14a7cea9e320ad1f36_161-p-500.webp 500w,
@@ -253,71 +258,113 @@
         </div>
       </header>
 
-      <!-- Terms / Hire Me Section -->
-      <section id="terms" class="w-container fade-in">
+      <section id="terms" class="terms-modern-section w-container fade-in reveal">
         <h4 class="heading-2">Hire Me</h4>
-        <div class="w-row">
-          <div class="column w-col w-col-6">
-            <h2 class="heading-4">Pricing</h2>
-            <p class="paragraph-4">
-              <strong>All pricing must be discussed via </strong>
-              <a href="cdn-cgi/l/email-protection.html#71130402181f1402023115101f1f08071e18155f121e1c"><strong>email</strong></a>
-              <strong> or DM's.<br />My preference being </strong>
-              <a href="https://www.instagram.com/danny.void/" target="_blank"><strong>Instagram</strong></a>
-              <strong>.</strong>
-            </p>
-            <p class="paragraph-2">
-              <strong id="embold">Contact Info<br /></strong>
-              <strong>Email:&nbsp;</strong>
-              <a href="cdn-cgi/l/email-protection.html#147661677d7a7167675470757a7a6d627b7d703a777b79">
-                <strong><span class="__cf_email__" data-cfemail="056770766c6b6076764561646b6b7c736a6c612b666a68">[email protected]</span></strong>
-              </a>
-              <strong><br />Text Only: +1 737 210-1769</strong>
-            </p>
+        
+        <div class="terms-grid">
+          <!-- Contact Card -->
+          <div class="terms-card terms-card-contact">
+            <h3 class="terms-card-title">Let's Work Together</h3>
+            <div class="terms-card-text">
+              All pricing must be discussed via <a href="cdn-cgi/l/email-protection.html#71130402181f1402023115101f1f08071e18155f121e1c" class="terms-link">email</a> or DM's. My preference being <a href="https://www.instagram.com/danny.void/" target="_blank" class="terms-link">Instagram</a>.
+            </div>
+            <div class="contact-info-box">
+              <div class="contact-item">
+                <span class="contact-label">Email</span>
+                <a href="cdn-cgi/l/email-protection.html#147661677d7a7167675470757a7a6d627b7d703a777b79" class="contact-value">
+                  <span class="__cf_email__" data-cfemail="056770766c6b6076764561646b6b7c736a6c612b666a68">[email protected]</span>
+                </a>
+              </div>
+              <div class="contact-item">
+                <span class="contact-label">Text Only</span>
+                <span class="contact-value">+1 737 210-1769</span>
+              </div>
+            </div>
           </div>
-          <div class="w-col w-col-6">
-            <h2 class="heading-5">Terms</h2>
-            <p class="paragraph-4">
-              <strong id="embold">Credit</strong><br />
-              • Shoutout required: Whenever you share the artwork, make sure you tag me as the artist.<br />
-              • Social media rules: On platforms like Instagram, credit is a must.<br /><br />
-              <strong id="embold">Ownership</strong><br />
-              • Showcase rights: I reserve the right to show off the work I create under my brand.<br />
-              • No credit removal: If you want to ditch my name from the project, that's gonna cost extra.<br />
-              • Timing matters: Need to hold off on sharing the final piece? Just give me a heads-up, and we can work it out.<br /><br />
-              <strong id="embold">Payment</strong><br />
-              • Upfront all the way: Payment's due upfront—no ifs, ands, or buts.<br />
-              • Rush job?: If you're in a hurry, I offer rush services for a little extra.<br />
-              • No deposit do-overs: Deposits aren't refundable, period.<br /><br />
-              <strong id="embold">Revisions</strong><br />
-              • One free tweak: You get one free revision per design.<br />
-              • More tweaks: Up to three tweaks total are cool.<br />
-              • Beyond that: Extra changes or big overhauls will come with an added cost.<br />
-              • Minor shifts: Tiny adjustments like nudging something over or making it a bit smaller don't count as revisions.<br />
-              • Let's chat: We can nail down what counts as a tweak versus a full-on change beforehand.<br /><br />
-              <strong id="embold">Turnaround Time</strong><br />
-              • Standard delivery: I'll have your project ready in 5–10 business days after payment confirmation.<br />
-              • Bulk orders: If you're ordering a bunch, hit me up to sort out a timeline.<br />
-              • Need it ASAP?: Same-day delivery is on the table for an extra charge.<br /><br />
-              <strong id="embold">Discounts</strong><br />
-              • Bulk love: Ordering multiple services? I'll hook you up with a discount.<br /><br />
-              <strong id="embold">File Types &amp; Resolution</strong><br />
-              • File formats: Your final files may come as .jpeg, .png, or .pdf.<br />
-              • Cover art specs: I design cover art in a high-res 3000x3000x300 version and a web-friendly 1080x1080x72 version.<br />
-              • Master files: If you need the master files, we can sort that out with an extra charge.<br />
-              • Special requests: Need a different format? Just let me know, and we can work something out (might add a little extra).<br /><br />
-              <strong id="embold">File Hosting</strong><br />
-              • Short-term hosting: I'll keep your final files up for at least one week.<br />
-              • Extended hosting: If you need them hosted longer (30 days, 90 days, or even forever), just give me a shout and we'll figure it out.
-            </p>
-            <p class="paragraph-2">
-              <strong id="embold">
-                <small>
-                  <i>Updated as of 2025-03-01</i> -
-                  <a href="https://web.archive.org/web/20250216055358/https://dannyvoid.com/#terms#terms" target="_blank">Previous Terms</a> via Wayback Machine.
-                </small>
-              </strong>
-            </p>
+
+          <!-- Terms Card -->
+          <div class="terms-card terms-card-legal">
+            <h3 class="terms-card-title">Terms & Conditions</h3>
+            
+            <div class="terms-accordion">
+              <div class="terms-item">
+                <h4 class="terms-subtitle">Credit</h4>
+                <ul class="terms-list">
+                  <li>Shoutout required: Whenever you share the artwork, make sure you tag me as the artist.</li>
+                  <li>Social media rules: On platforms like Instagram, credit is a must.</li>
+                </ul>
+              </div>
+
+              <div class="terms-item">
+                <h4 class="terms-subtitle">Ownership</h4>
+                <ul class="terms-list">
+                  <li>Showcase rights: I reserve the right to show off the work I create under my brand.</li>
+                  <li>No credit removal: If you want to ditch my name from the project, that's gonna cost extra.</li>
+                  <li>Timing matters: Need to hold off on sharing the final piece? Just give me a heads-up, and we can work it out.</li>
+                </ul>
+              </div>
+
+              <div class="terms-item">
+                <h4 class="terms-subtitle">Payment</h4>
+                <ul class="terms-list">
+                  <li>Upfront all the way: Payment's due upfront—no ifs, ands, or buts.</li>
+                  <li>Rush job?: If you're in a hurry, I offer rush services for a little extra.</li>
+                  <li>No deposit do-overs: Deposits aren't refundable, period.</li>
+                </ul>
+              </div>
+
+              <div class="terms-item">
+                <h4 class="terms-subtitle">Revisions</h4>
+                <ul class="terms-list">
+                  <li>One free tweak: You get one free revision per design.</li>
+                  <li>More tweaks: Up to three tweaks total are cool.</li>
+                  <li>Beyond that: Extra changes or big overhauls will come with an added cost.</li>
+                  <li>Minor shifts: Tiny adjustments like nudging something over or making it a bit smaller don't count as revisions.</li>
+                  <li>Let's chat: We can nail down what counts as a tweak versus a full-on change beforehand.</li>
+                </ul>
+              </div>
+
+              <div class="terms-item">
+                <h4 class="terms-subtitle">Turnaround Time</h4>
+                <ul class="terms-list">
+                  <li>Standard delivery: I'll have your project ready in 5–10 business days after payment confirmation.</li>
+                  <li>Bulk orders: If you're ordering a bunch, hit me up to sort out a timeline.</li>
+                  <li>Need it ASAP?: Same-day delivery is on the table for an extra charge.</li>
+                </ul>
+              </div>
+
+              <div class="terms-item">
+                <h4 class="terms-subtitle">Discounts</h4>
+                <ul class="terms-list">
+                  <li>Bulk love: Ordering multiple services? I'll hook you up with a discount.</li>
+                </ul>
+              </div>
+
+              <div class="terms-item">
+                <h4 class="terms-subtitle">File Types & Resolution</h4>
+                <ul class="terms-list">
+                  <li>File formats: Your final files may come as .jpeg, .png, or .pdf.</li>
+                  <li>Cover art specs: I design cover art in a high-res 3000x3000x300 version and a web-friendly 1080x1080x72 version.</li>
+                  <li>Master files: If you need the master files, we can sort that out with an extra charge.</li>
+                  <li>Special requests: Need a different format? Just let me know, and we can work something out (might add a little extra).</li>
+                </ul>
+              </div>
+
+              <div class="terms-item">
+                <h4 class="terms-subtitle">File Hosting</h4>
+                <ul class="terms-list">
+                  <li>Short-term hosting: I'll keep your final files up for at least one week.</li>
+                  <li>Extended hosting: If you need them hosted longer (30 days, 90 days, or even forever), just give me a shout and we'll figure it out.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="terms-footer">
+              <small>
+                <i>Updated as of 2025-03-01</i> — 
+                <a href="https://web.archive.org/web/20250216055358/https://dannyvoid.com/#terms#terms" target="_blank" class="terms-link">Previous Terms</a> via Wayback Machine.
+              </small>
+            </div>
           </div>
         </div>
       </section>
@@ -325,17 +372,8 @@
 
     <!-- Footer -->
     <footer class="site-footer w-container">
-      <p>© 2025 Danny Void. All rights reserved.</p>
-      <ul class="social-links">
-        <li>
-          <a href="https://instagram.com/danny.void" target="_blank">Instagram</a>
-        </li>
-        <li>
-          <a href="https://twitter.com/dannyvoid" target="_blank">Twitter</a>
-        </li>
-        <li>
-          <a href="https://github.com/dannyvoid" target="_blank">GitHub</a>
-        </li>
+      <div>© 2025 Danny Void. All rights reserved.</div>
+      <ul class="social-links" id="footer-social-links">
       </ul>
     </footer>
 
@@ -358,6 +396,7 @@
     <script src="lastfm-widget___.js" defer></script>
     <script src="main.js" defer></script>
     <script src="enhancements.new.js" defer></script>
+    <script src="modern-interactions.js" defer></script>
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_TRACKING_ID"></script>
