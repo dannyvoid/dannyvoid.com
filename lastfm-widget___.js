@@ -35,9 +35,9 @@ async function fetchLastFmData() {
 function formatMessage(track) {
     const { name: songName, artist: { '#text': artistName }, '@attr': nowPlaying, date, image } = track;
     const isPlaying = !!nowPlaying;
-    
+
     const albumArt = image && image.length > 0 ? image[image.length - 1]['#text'] : '';
-    
+
     let timeString = '';
     if (date) {
         const dateObj = new Date(parseInt(date.uts) * 1000);
@@ -52,9 +52,9 @@ function formatMessage(track) {
             const hours = Math.floor(diffMinutes / 60);
             timeString = `${hours}h ago`;
         } else {
-            const formattedTime = dateObj.toLocaleTimeString('en-US', {
-                hour: 'numeric',
-                minute: '2-digit',
+        const formattedTime = dateObj.toLocaleTimeString('en-US', {
+            hour: 'numeric',
+            minute: '2-digit',
                 hour12: true
             });
             timeString = formattedTime;
