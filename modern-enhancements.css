@@ -557,7 +557,7 @@ a, button, input, textarea, select, [role="button"], .w-inline-block {
 }
 
 .gallery-lightbox {
-  transition: transform 0.4s var(--transition-smooth),
+  transition: transform 0.3s var(--transition-smooth),
               box-shadow 0.4s var(--transition-smooth);
   border-radius: 8px;
   overflow: hidden;
@@ -565,7 +565,7 @@ a, button, input, textarea, select, [role="button"], .w-inline-block {
 }
 
 .gallery-lightbox:hover {
-  transform: translateY(-10px) scale(1.02);
+  transform: perspective(1000px) rotateX(0) rotateY(0) translateY(-10px) scale(1.02);
   box-shadow: 0 15px 40px rgba(55, 250, 178, 0.3);
 }
 
@@ -1006,7 +1006,8 @@ section, .hero {
 
 .tilt-3d {
   transform-style: preserve-3d;
-  transition: transform 0.5s var(--transition-smooth);
+  transition: none;
+  will-change: transform;
 }
 
 /* .blur-up {

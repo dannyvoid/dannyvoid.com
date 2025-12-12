@@ -301,18 +301,45 @@
     const tiltElements = document.querySelectorAll('.gallery-lightbox');
     tiltElements.forEach(el => {
       el.classList.add('tilt-3d');
-      el.addEventListener('mousemove', function(e) {
-        const rect = this.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        const rotateX = (y - centerY) / 10;
-        const rotateY = (centerX - x) / 10;
-        this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px) scale(1.02)`;
+      let rafId = null;
+      let isAnimating = true;
+      
+      el.addEventListener('mouseenter', function() {
+        isAnimating = true;
+        // Let CSS handle the initial lift animation
+        this.style.transition = 'transform 0.3s var(--transition-smooth), box-shadow 0.4s var(--transition-smooth)';
+        
+        // After lift animation completes, enable instant rotation
+        setTimeout(() => {
+          isAnimating = false;
+          this.style.transition = 'box-shadow 0.4s var(--transition-smooth)';
+        }, 300);
       });
+      
+      el.addEventListener('mousemove', function(e) {
+        if (rafId) cancelAnimationFrame(rafId);
+        
+        rafId = requestAnimationFrame(() => {
+          const rect = this.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          const centerX = rect.width / 2;
+          const centerY = rect.height / 2;
+          const rotateX = (y - centerY) / 15;
+          const rotateY = (centerX - x) / 15;
+          
+          // During initial animation, don't override transform
+          if (!isAnimating) {
+            this.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px) scale(1.02)`;
+          }
+        });
+      });
+      
       el.addEventListener('mouseleave', function() {
-        this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+        isAnimating = true;
+        if (rafId) cancelAnimationFrame(rafId);
+        this.style.transition = 'transform 0.4s var(--transition-smooth), box-shadow 0.4s var(--transition-smooth)';
+        this.style.transform = '';
       });
     });
   }
