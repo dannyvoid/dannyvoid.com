@@ -10,6 +10,42 @@
   --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
+/* Color Palettes */
+:root[data-theme="green"],
+html[data-theme="green"] {
+  --primary-color: #37fab2;
+  --primary-dark: #2dd49a;
+  --primary-light: #5ffcc9;
+}
+
+:root[data-theme="purple"],
+html[data-theme="purple"] {
+  --primary-color: #a78bfa;
+  --primary-dark: #8b5cf6;
+  --primary-light: #c4b5fd;
+}
+
+:root[data-theme="blue"],
+html[data-theme="blue"] {
+  --primary-color: #60a5fa;
+  --primary-dark: #3b82f6;
+  --primary-light: #93c5fd;
+}
+
+:root[data-theme="pink"],
+html[data-theme="pink"] {
+  --primary-color: #f472b6;
+  --primary-dark: #ec4899;
+  --primary-light: #f9a8d4;
+}
+
+:root[data-theme="orange"],
+html[data-theme="orange"] {
+  --primary-color: #fb923c;
+  --primary-dark: #f97316;
+  --primary-light: #fdba74;
+}
+
 #scroll-progress {
   position: fixed;
   top: 0;
@@ -1180,6 +1216,96 @@ body {
 .nav-logo-link:hover .nav-logo {
   filter: drop-shadow(0 0 20px rgba(55, 250, 178, 0.6));
   transform: rotate(5deg) scale(1.05);
+}
+
+/* ============ COLOR PALETTE SWITCHER ============ */
+.palette-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  z-index: 10000;
+  transition: all 0.3s var(--transition-smooth);
+  opacity: 0.6;
+}
+
+.palette-switcher:hover {
+  opacity: 1;
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.palette-option {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s var(--transition-smooth);
+  position: relative;
+}
+
+.palette-option::after {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  transition: all 0.3s var(--transition-smooth);
+}
+
+.palette-option:hover {
+  transform: scale(1.15);
+}
+
+.palette-option.active {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.palette-option.active::after {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.palette-option[data-palette="green"] {
+  background: linear-gradient(135deg, #2dd49a, #5ffcc9);
+  box-shadow: 0 0 0 2px rgba(45, 212, 154, 0.2);
+}
+
+.palette-option[data-palette="purple"] {
+  background: linear-gradient(135deg, #8b5cf6, #c4b5fd);
+}
+
+.palette-option[data-palette="blue"] {
+  background: linear-gradient(135deg, #3b82f6, #93c5fd);
+}
+
+.palette-option[data-palette="pink"] {
+  background: linear-gradient(135deg, #ec4899, #f9a8d4);
+}
+
+.palette-option[data-palette="orange"] {
+  background: linear-gradient(135deg, #f97316, #fdba74);
+}
+
+@media (max-width: 768px) {
+  .palette-switcher {
+    top: 70px;
+    right: 15px;
+    padding: 6px 10px;
+    gap: 6px;
+  }
+  
+  .palette-option {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 /* ============ HEADING EFFECTS ============ */
