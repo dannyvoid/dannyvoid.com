@@ -2,7 +2,7 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: var(--primary-color);
+  background: #37fab2;
   color: #000;
   border: none;
   border-radius: 50%;
@@ -60,7 +60,7 @@
 }
 
 .site-footer .social-links li a {
-  color: var(--primary-color);
+  color: #37fab2;
   text-decoration: none;
   font-weight: bold;
 }

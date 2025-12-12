@@ -465,30 +465,12 @@
       footerLinks.appendChild(clonedLi);
     });
   }
-  function initPaletteSwitcher() {
-    const savedTheme = localStorage.getItem('color-theme') || 'green';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    const paletteOptions = document.querySelectorAll('.palette-option');
-    paletteOptions.forEach(option => {
-      if (option.getAttribute('data-palette') === savedTheme) {
-        option.classList.add('active');
-      }
-      option.addEventListener('click', function() {
-        const palette = this.getAttribute('data-palette');
-        document.documentElement.setAttribute('data-theme', palette);
-        localStorage.setItem('color-theme', palette);
-        paletteOptions.forEach(opt => opt.classList.remove('active'));
-        this.classList.add('active');
-      });
-    });
-  }
   function init() {
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', init);
       return;
     }
     initReducedMotion();
-    initPaletteSwitcher();
     syncFooterLinks();
     initPageTransition();
     initScrollProgress();
